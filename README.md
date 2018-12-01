@@ -1,6 +1,6 @@
 # InformedPriors
 _An AI-Powered Disease Pathway Research Tool_  
-**by Michael H. & Richard J**
+**by Team HGT**
 
 ## Introduction
 Informed Priors is an AI-powered disease pathway research tool...
