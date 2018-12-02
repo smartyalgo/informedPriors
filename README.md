@@ -3,19 +3,12 @@ _An AI-Powered Disease Pathway Research Tool_
 **by Team HGT**
 
 ## Introduction
-Informed Priors is an AI-powered disease pathway research tool...
+InformedPriors is an AI-powered disease pathway research tool. InformedPriors uses NLP to extract the causal relationships which exist in medical literature to construct an extensive knowledge graph. Queries to InformedPriors use inference chains in the knowledge graph to reconstruct the complex causal pathways which exist for a disease or other type of entity in medical ontology, creating a list of all the dependencies for the disease with values which can be used as an informed prior for data models.
 
 ## Benefits
-- Endless fascination
-- Countless friends
-- Immense power
--
-
-## Features
-- Responds to input
-- Operates automatically
-- Calls a process
-- 
+- Accelerates the discovery process for testable hypothesis
+- Identifies feedback loops useful to complex diseases
+- Automatically adjusts disease pathways to latest research
 
 ## Model Components
 - PubMed Abstracts (DataSet)
@@ -34,11 +27,8 @@ Informed Priors is an AI-powered disease pathway research tool...
 - BeFree
 - Gene Disease Associations Database
 
-
 ## Requirements
-- Dependencies listed in Dockerfile
-- Credentials from third-party services
--
+- 
 
 ## Collaboration Notes
 The Git and Docker repos contain all the configuration information required for collaboration except access tokens. To synchronize access tokens across multiple devices, platforms and users without losing local control, you can use LastPass, an encrypted email platform such as ProtonMail or smoke signals. If you use any AWS services, use AWS IAM to assign user permissions and create keys for each collaborator individually.
