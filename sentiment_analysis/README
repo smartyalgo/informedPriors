@@ -1,0 +1,7 @@
+To run
+
+run 
+./extract_sentiment_input.sh to generate train data
+
+run
+python sentiment_analysis.py
