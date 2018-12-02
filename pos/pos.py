@@ -29,6 +29,7 @@ def extract_relations(doc):
 
     relations = []
     # for token in filter(lambda w: str(w) == "S. flavida", doc):
+    # Extract subject, verb, object
     for token in doc:
         if token.dep_ == 'nsubj':
             relations.append((token.head.right_edge, token.head, token))
