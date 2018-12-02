@@ -13,7 +13,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 
-file_name = "/Users/michaelho/Documents/workspace/dvhack2018/informedPriors/train"
+file_name = "../train"
 
 # Memoize file content
 statements_train = []
