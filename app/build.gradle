@@ -1,0 +1,98 @@
+
+buildscript {
+    ext {
+        springBootVersion = '1.5.+'
+        springIntegrationVersion = '4.2.6.RELEASE'
+    }
+
+    repositories {
+        // NOTE: You should declare only repositories that you need here
+        mavenLocal()
+        mavenCentral()
+        maven { url 'http://repo.spring.io/release' }
+        maven { url 'http://repo.spring.io/libs-milestone' }
+    }
+
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+        classpath 'org.hibernate.build.gradle:gradle-maven-publish-auth:2.0.1'
+        classpath 'com.github.rholder:gradle-one-jar:1.0.4'
+        classpath('org.ajoberstar:grgit:1.1.0')  // for git revision/gitHash
+    }
+
+}
+
+plugins {
+    id 'java'
+    id 'idea'
+    id 'checkstyle'
+    id 'nebula.ospackage' version '3.4.0'
+    id 'com.github.hierynomus.license' version '0.14.0'
+    id 'org.sonarqube' version '2.6.1'
+    id 'groovy'       // enables running Groovy tests
+    id 'org.unbroken-dome.test-sets' version '1.4.2'  // the testSets plugin
+}
+
+apply plugin: 'maven-publish'
+apply plugin: 'maven-publish-auth'
+apply plugin: 'groovy'  // runs tests under src/test/groovy (Spock)
+apply plugin: 'gradle-one-jar' // Build fatJar
+
+group 'co.hgt'
+version '0.0.1'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+//mainClassName = "co.hgt.InformedPriorsApplication"
+
+repositories {
+    mavenCentral()
+    maven { url 'http://repo.spring.io/release' }
+    maven { url 'http://repo.spring.io/libs-milestone' }
+
+}
+
+dependencies {
+    compile ("org.springframework:spring-web:$springIntegrationVersion")
+
+    compile 'org.springframework.boot:spring-boot-starter-web:1.4.+'
+    compile ("org.springframework:spring-web:$springIntegrationVersion")
+    compile ("org.springframework:spring-orm:$springIntegrationVersion")
+
+    compile 'org.slf4j:slf4j-simple:1.7.21'
+    compile 'com.sparkjava:spark-core:2.3'
+
+    compile 'org.apache.httpcomponents:httpclient:4.5.3'
+
+    compile 'org.neo4j.driver:neo4j-java-driver:1.4.4'
+
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+//
+//distributions {
+//    main {
+//        baseName = "co.hgt.InformedPriorsApplication"
+//    }
+//}
+
+jar {
+    baseName "${project.name}"  // 'gem-balance-service'
+    version "$version"
+    manifest {
+        attributes(
+                'Main-Class': "co.hgt.InformedPriorsApplication",
+                'Class-Path': configurations.compile.collect { it.getName() }.join(' ')
+        )
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.14'
+    distributionUrl = "https://services.gradle.org/distributions/gradle-${gradleVersion}-all.zip"
+}
+
+task fatJar(type: OneJar) {
+    mainClass = "co.hgt.InformedPriorsApplication"
+}
