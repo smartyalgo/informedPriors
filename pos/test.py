@@ -17,7 +17,8 @@ def main(model='en_core_web_sm'):
         doc = nlp(text)
         relations = extract_relations(doc)
         for r1, r2, r3 in relations:
-            print('{:<10}\t{}\t{}'.format(r1.text, r3, r2.text))
+            print('{:<10}\t{}\t{}'.format(r1.text, r3, r2.lemma_))
+            # print('{:<10}\t{}\t{}'.format(r1.text, r3, r2.text))
 
 def extract_relations(doc):
     # merge entities and noun chunks into one token
