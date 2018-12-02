@@ -17,6 +17,14 @@ Informed Priors is an AI-powered disease pathway research tool...
 - Calls a process
 - 
 
+## Components
+- PubMed Abstracts (Dataset)
+- Manually Labeled POS (Training Set)
+- Spacy (Data Pre-Processing)
+- AWS Comprehend Medical (Name Entity Recognition)
+- SciKit Logistic Regressor (Sentiment Analyzer)
+- Neo4j (Graph Database & Query Engine)
+
 ## Prior Work
 - UniProt
 - KEGG
